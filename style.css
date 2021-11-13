@@ -1,0 +1,53 @@
+/* Reusable CSS */
+
+:root {--header-height: 6rem;}
+
+.flex {display: flex;}
+.flex-block {display: inline-block;}
+
+.justify-center {justify-content: center;}
+.justify-between {justify-content: space-between;}
+
+.align-center {align-items: center;}
+
+.absolute {position: absolute;}
+.relative {position: relative;}
+
+.m-right {margin-right: 1rem;}
+
+/* Fonts */
+
+@font-face {
+    font-family: SuperMario256;
+    src: url(./assets/fonts/SuperMario256.ttf);
+}
+
+.blue {color: #019edb;}
+.yellow {color: #ffd233;}
+.red {color: #e62820;}
+.green {color: #46ad37;}
+
+/* Element specific classes */
+
+
+body {margin: 0;}
+
+header { 
+    background-color: #e62820;
+    height: var(--header-height);
+}
+
+header span {
+    font-family: "SuperMario256";
+    font-size: 2rem;
+    letter-spacing: 0.2rem;
+    -webkit-text-stroke-width: 0.125rem;
+    -webkit-text-stroke-color: #000000;
+}
+
+main {
+    background-image:url(https://64.media.tumblr.com/276ac633d947ba5c8bbebaa0bb6d4574/tumblr_n1xcz4UPBU1rrftcdo1_640.gifv);
+    height: calc(100vh - var(--header-height));
+}
+
+
