@@ -15,6 +15,15 @@
 
 .m-right {margin-right: 1rem;}
 
+.square {
+    width: 20rem;
+    height: 10rem;
+    background-color: #55141a;
+    border-radius: 1rem;
+}
+
+.square:hover { background-color: #702028;}
+
 /* Fonts */
 
 @font-face {
@@ -50,4 +59,28 @@ main {
     height: calc(100vh - var(--header-height));
 }
 
+.start-text { 
+    animation: colorLoop 5s ease-in-out infinite;
+    font-family: SuperMario256; 
+    font-size: 2rem;
+    letter-spacing: 0.4rem;
+    color: white;
+}
+
+/* Animations */
+
+@keyframes colorLoop {
+    0% {
+        color: #019edb;
+    }
+    25% {
+        color: #ffd233;
+    }
+    75% {
+        color: #e62820;
+    }
+    100% {
+        color: #46ad37;
+    }
+}
 
