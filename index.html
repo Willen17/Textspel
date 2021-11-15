@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Textspel</title>
     <link rel="stylesheet" href="./style.css">
-    <script src="./main.js"></script>
+    <script defer src="./main.js"></script>
 </head>
 <body class="relative">
     <header class="flex justify-center align-center">
@@ -30,27 +30,33 @@
             <span class="red">u</span>
             <span class="green">y</span>
     </header>
-    <main class="flex justify-center align-center">
-        <div class=" flex justify-center align-center square">
+    <main class="flex flex-column justify-center align-center">
+        <!-- <div class=" flex justify-center align-center square">
             <p class="start-text">START</p>
-        </div>
+        </div> -->
         <div class="text-square">
-            <p>Once upon a time...</p>
-            <div>
-                <button class="button-choice">Option 1</button>
-                <button class="button-choice">Option 2</button>
-                <button class="button-choice">Option 3</button>
-                <button class="button-choice">Option 4</button>
-                <div class="flex-block">
-                    <p>
-                        Inventory
-                    </p>
-                    <div class="inventory flex justify-center">
-                        <img src="./assets/SeekPng.com_goomba-png_8897639.png" height="40px" alt="">
-                    </div>
-                </div>
-            </div>
+            <p>Once upon a time there was a plumber from italy named... Named, wait. I forgot to take his name, wait a second. What’s your name?</p>
         </div>
+
+        <div class="text-square">
+            <label for="myText">Please enter your name:</label>
+            <input type="text" id="myText">
+            <button type="button" id="myButton">Submit</button>
+        </div>
+        
+         <div class="text-square">
+            <button class="button-choice">Option 1</button>
+            <button class="button-choice">Option 2</button>
+            <button class="button-choice">Option 3</button>
+            <button class="button-choice">Option 4</button>
+        </div>    
+
+         <div class="inventory-container absolute flex flex-column align-center">
+             <p>Inventory</p>
+             <img src="./assets/SeekPng.com_goomba-png_8897639.png" alt="Goomba">
+             <img src="./assets/SeekPng.com_goomba-png_8897639.png" alt="Goomba">
+         </div>
+        
     </main>
 </body>
 </html>
