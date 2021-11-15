@@ -1,4 +1,5 @@
 /* Reusable CSS */
+* {box-sizing: border-box;} 
 
 :root {--header-height: 6rem;}
 
@@ -20,6 +21,7 @@
     height: 10rem;
     background-color: #55141a;
     border-radius: 1rem;
+    cursor: pointer;
 }
 
 .square:hover { background-color: #702028;}
@@ -29,6 +31,11 @@
 @font-face {
     font-family: SuperMario256;
     src: url(./assets/fonts/SuperMario256.ttf);
+}
+
+@font-face {
+    font-family: BunnyFunny;
+    src: url(./assets/fonts/BunnyFunny.ttf);
 }
 
 .blue {color: #019edb;}
@@ -65,6 +72,36 @@ main {
     font-size: 2rem;
     letter-spacing: 0.4rem;
     color: white;
+}
+
+.text-square {
+    background-color: beige;
+    color: #e62820;
+    width: 60rem;
+    border-radius: 1rem;
+    padding: 2rem;
+    font-size: 1.5rem;
+    font-family: BunnyFunny;
+    text-align: center;
+}
+
+
+.button-choice {
+    background-color: #ffd233;
+    color: #55141a;
+    border: 0;
+    border-radius: .2rem;
+    height: 6rem;
+    width: 12rem;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif ;
+    font-size: 1rem;
+    margin: 0.5rem;
+
+}
+
+.inventory {
+    width: 50rem;
+    background-color: chartreuse;
 }
 
 /* Animations */
