@@ -78,6 +78,7 @@ main {
     color: white;
 }
 
+
 .text-square {
     background-color: beige;
     color: #e62820;
@@ -89,6 +90,11 @@ main {
     text-align: center;
     margin-bottom: 2rem;
 }
+
+#storyBox {display: none;}
+#inputBox {display: none;}
+#choicesBox {display: none;}
+#inventory {display: none;}
 
 label {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
