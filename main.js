@@ -24,9 +24,14 @@ function startGame() {
    startButton.remove();
    storyBox.style.display = 'unset';
    inputBox.style.display = 'unset';
+   inventory.style.display = 'unset';
 }
 
 document.getElementById('myButton').onclick = function() {
     const myName = document.getElementById('myText').value;
-    console.log('Hey', myName);
+    inputBox.style.display = 'none';
+   
+    const textField = document.querySelector('#storyBox >p');
+    textField.innerHTML = 'Anyways... Once upon a time there was a plumber from italy named ' + myName + '.';
+
 }
