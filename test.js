@@ -116,4 +116,5 @@ function main() {
     storyText.innerHTML = 'Anyways... Once upon a time there was a plumber from italy named ' + inputValue + '.';
     inputContainer.style.display = 'none';
     setTimeout(function() {storyText.innerHTML = inputValue + ' wasn’t like any other plumber. He had an ever recurring feud with a turtle named... BOWSER!'}, 5000);
+    setTimeout(function() {storyText.innerHTML = 'This time BOWSER had taken it way too far. He had hit ' + inputValue +' where he knew it would hurt him. Bowser had kidnapped his ever loving wife, Peach.'}, 15000);
  }
