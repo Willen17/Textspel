@@ -95,7 +95,7 @@ function main() {
     const location = document.querySelector('#location > p').innerHTML;
    
     const storyBox = document.getElementById('storyBox');
-    const storyText = document.querySelector('#storyBox > p').innerHTML;
+    storyText = document.querySelector('#storyBox > p');
     
     inputContainer = document.getElementById('inputBox');
     const inputLabel = document.querySelector('#inputBox > label').innerHTML;
@@ -113,6 +113,7 @@ function main() {
 
  function getInputValue() {
     inputValue = document.getElementById('myText').value;
-    setTimeout(function() {storyText.style.innerHTML('Uppdaterad text')}, 5000);
-
+    storyText.innerHTML = 'Anyways... Once upon a time there was a plumber from italy named ' + inputValue + '.';
+    inputContainer.style.display = 'none';
+    setTimeout(function() {storyText.innerHTML = inputValue + ' wasn’t like any other plumber. He had an ever recurring feud with a turtle named... BOWSER!'}, 5000);
  }
