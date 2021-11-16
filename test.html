@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Textspel</title>
-    <link rel="stylesheet" href="./style.css">
-    <script defer src="./main.js"></script>
+    <link rel="stylesheet" href="./test.css">
+    <script defer src="./test.js"></script>
 </head>
 <body class="relative">
     <header class="flex justify-center align-center">
@@ -36,14 +36,19 @@
             <p class="start-text">START</p>
         </div>
 
+        <div id="location" class="container-location absolute">   
+            <p>Location: X </p>
+        </div>
+
         <div id="storyBox" class="text-square">
             <p>Once upon a time there was a plumber from italy named... Named, wait. I forgot to take his name, wait a second. What’s your name?</p>
         </div>
 
-        <div id="inputBox" class="text-square">
-            <label for="myText">Please enter your name:</label>
-            <input type="text" id="myText">
-            <button type="button" id="myButton">Submit</button>
+
+        <div class="text-square absolute" id="inputBox">
+            <label for="text">Please enter your name:</label>
+            <input type="text" id="myText"/>
+            <button id="myButton">Submit</button>
         </div>
         
          <div id="choicesBox" class="text-square">
