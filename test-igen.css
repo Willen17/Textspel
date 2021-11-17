@@ -37,9 +37,11 @@
 }
 
 @font-face {
-    font-family: BunnyFunny;
-    src: url(./assets/fonts/BunnyFunny.ttf);
+    font-family: HeyComic;
+    src: url(./assets/fonts/Hey\ Comic.ttf);
 }
+
+
 
 .blue {color: #019edb;}
 .yellow {color: #ffd233;}
@@ -78,18 +80,6 @@ main {
     color: white;
 }
 
-.container-location {
-    top: calc(2rem + var(--header-height));
-    left: 3rem;
-    font-family: BunnyFunny;
-    font-size: 1.5rem;
-    background-color: #55141a;
-    color: #ffd233;
-    border-radius: 1rem;
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
-
-}
 
 .text-square {
     background-color: beige;
@@ -98,15 +88,26 @@ main {
     border-radius: 1rem;
     padding: 2rem;
     font-size: 1.5rem;
-    font-family: BunnyFunny;
+    font-family: HeyComic;
     text-align: center;
+    box-shadow: 0 0 0.5rem 0.15rem #00000079;
 }
 
-#storyBox {display: none; margin-bottom: 20rem;}
-#inputBox {display: none; animation: fadeIn 1s ease-in-out;}
+#storyBox {display: none; margin: 0 0 4rem;}
+#inputBox {display: none;}
 #choicesBox {display: none;}
 #inventory {display: none;}
-#location {display: none;}
+#location {
+    display: none;
+    top: calc(2rem + var(--header-height));
+    left: 3rem;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 1.5rem;
+    background-color: #55141a;
+    color: #ffd233;
+    border-radius: 1rem;
+    padding: 1rem;
+}
 
 label {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
@@ -134,6 +135,7 @@ label {
     cursor: pointer;
 }
 
+
 .button-choice {
     background-color: #ffd233;
     color: #55141a;
@@ -145,14 +147,18 @@ label {
     font-size: 1rem;
     margin: 0.5rem;
     cursor: pointer;
-
 }
+
+.button-choice:hover {
+    border: 1px solid #55141a;
+}
+
 
 .inventory-container {
     background-color: beige;
     color: #e62820;
     font-size: 1.5rem;
-    font-family: BunnyFunny;
+    font-family: HeyComic;
     border-radius: 1rem;
     padding: 2rem;
     bottom: calc(100vh - var());
@@ -182,16 +188,6 @@ label {
     100% {
         color: #46ad37;
     }
-}
-
-@keyframes fadeIn {
-    0% {
-        bottom: -10rem;
-    }
-    100%{
-        bottom: 14rem;
-    }
-    
 }
 
 
