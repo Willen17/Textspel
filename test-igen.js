@@ -18,6 +18,9 @@ const stairwayHeavenItem = document.getElementById('stairwayHeaven');
 
 const currentLocation = document.getElementById('location');
 
+const songContainer= document.getElementById('songContainer');
+
+
 
 
 //State
@@ -100,16 +103,6 @@ function showStairwayHeaven() {
     stairwayHeaven = 1;
 }
 
-function showSongInput() {
-
-   let songLabel = document.createElement('label');
-   songLabel.innerText = 'Guess favorite song';
-   choiceButtons.appendChild(songLabel);
-
-   let songInput = document.createElement('input');
-   choiceButtons.appendChild(songInput);
-
-}
 
 function selectChoice(choice) {
     const nextTextNodeId = choice.nextText;
@@ -127,8 +120,10 @@ function selectChoice(choice) {
      } else if (nextTextNodeId === 15 && stairwayHeaven === ''){
          showStairwayHeaven();
          showTextNode(nextTextNodeId);
-     } else if (nextTextNodeId === 17) {
-         showSongInput();
+     } 
+        else if (nextTextNodeId <= 0) {
+         location.reload();
+         return false;
      }
      else {
         showTextNode(nextTextNodeId);
@@ -233,7 +228,7 @@ function updateTextNodes(){
 
             },
             {
-                text: 'Go back to previous room.',
+                text: 'Go back.',
                 nextText: 6
             }
             
@@ -244,7 +239,7 @@ function updateTextNodes(){
         key: '',
         choices: [
             {
-                text: 'Go back to previous room.',
+                text: 'Go back.',
                 nextText: 7
             }
         ]
@@ -254,7 +249,7 @@ function updateTextNodes(){
         key: 1,
         choices: [
             {
-                text: 'Go back to previous room.',
+                text: 'Go back.',
                 nextText: 7
             }
         ]
@@ -264,7 +259,7 @@ function updateTextNodes(){
         key: '',
         choices: [
             {
-                text: 'Go back to previous room.',
+                text: 'Go back.',
                 nextText: 7
             }
         ]
@@ -299,7 +294,7 @@ function updateTextNodes(){
                 nextText: 15
             },
             {
-                text: 'Go back to previous room',
+                text: 'Go back',
                 nextText: 11
             }
         ]
@@ -308,7 +303,7 @@ function updateTextNodes(){
         text: 'You entered the blue door. Nothing special in here...',
         choices: [
             {
-                text: 'Go back to previous room',
+                text: 'Go back',
                 nextText: 12
             }
         ]
@@ -317,7 +312,7 @@ function updateTextNodes(){
         text: 'You entered the green door. Wow you found... absolutely nothing.',
         choices: [
             {
-                text: 'Go back to previous room',
+                text: 'Go back.',
                 nextText: 12
             }
         ]
@@ -327,14 +322,14 @@ function updateTextNodes(){
         stairwayHeaven: 1,
         choices: [
             {
-                text: 'Go back to previous room',
+                text: 'Go back.',
                 nextText: 12
             }
         ]
     }, {
         id: 16,
         text: 'Mohahaha! You finally found me. Behind this door i got your precious Peach. I will only let you thru if you guess my favorite song!',
-        inputYe: 1,
+        input: 1,
         choices: [
 
             {
@@ -342,7 +337,7 @@ function updateTextNodes(){
                 nextText: 17
             },
             {
-                text: 'Go back to previous room',
+                text: 'Go back.',
                 nextText: 11
             }
         ]
