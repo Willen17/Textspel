@@ -1,4 +1,4 @@
-window.onload = addEventListener;
+window.onload = addEventListeners;
 
 // Globala
 const textElement = document.getElementById('storyBox');
@@ -8,27 +8,33 @@ const choiceButtons = document.getElementById('choicesBox');
 const inputContainer = document.getElementById('inputBox');
 const inputLabel = document.querySelector('inputBox > label');
 const inputButton = document.getElementById('myButton');
+const input = document.getElementById('myText');
+
 
 const inventory = document.getElementById('inventory');
+const keyItem = document.getElementById('key');
+const zeppelinItem = document.getElementById('zeppelin');
+const stairwayHeavenItem = document.getElementById('stairwayHeaven');
 
 const currentLocation = document.getElementById('location');
 
 
 
 //State
-let state = {};
-var userName;
+let userName = '';
+let key = '';
+let zeppelin = '';
+let stairwayHeaven = '';
+let inputYe = '';
 
 
-
-
-
-function addEventListener() {
+function addEventListeners() {
     const startButton = document.getElementById('startButton');
     startButton.onclick = startGame;
-
-    inputButton.onclick = getInputValue;
-
+    input.addEventListener('input', saveName);
+    inputButton.onclick = startRealGame;
+    console.log(textNodes[15].id);
+    
 }
 
 
@@ -39,12 +45,15 @@ function startGame() {
     inputContainer.style.display = 'unset';
 }
 
-function getInputValue() {
-    var userName = document.getElementById('myText').value;
+function saveName(event) {
+    userName = event.target.value;
+}
+
+function startRealGame() {
     inputContainer.style.display = 'none';
     choiceButtons.style.display = 'unset';
-    inventory.style.display = 'unset';
-    state = {};
+    inventory.style.display = 'flex';
+    updateTextNodes();
     showTextNode(1);
 }
 
@@ -66,6 +75,7 @@ function showTextNode(textNodeIndex) {
         }
     })
 
+
     // const findScene = scenes.find(function currentText(currentScene) {return scenes.id === textNodeIndex;});
 
 }
@@ -75,21 +85,68 @@ function showChoice(choice) {
 
 }
 
-function selectChoice(choice) {
-    const nextTextNodeId = choice.nextText;
-    if (nextTextNodeId === 11 && key === false) {
-        textElement.innerText = 'You need a key to enter this room!';
-    }
-    else {showTextNode(nextTextNodeId);}
-    
+function showKey() {
+    keyItem.style.display ='unset';
+    key = 1;
+}
+
+function showZeppelin() {
+    zeppelinItem.style.display ='unset';
+    zeppelin = 1;
+}
+
+function showStairwayHeaven() {
+    stairwayHeavenItem.style.display ='unset';
+    stairwayHeaven = 1;
+}
+
+function showSongInput() {
+
+   let songLabel = document.createElement('label');
+   songLabel.innerText = 'Guess favorite song';
+   choiceButtons.appendChild(songLabel);
+
+   let songInput = document.createElement('input');
+   choiceButtons.appendChild(songInput);
 
 }
 
+function selectChoice(choice) {
+    const nextTextNodeId = choice.nextText;
+    
+     if (nextTextNodeId === 11 && key === '') {
+        textElement.innerText = 'You need a key to enter door two!';
+     } else if (nextTextNodeId === 11 && key === 1){
+        showTextNode(nextTextNodeId);
+     } else if (nextTextNodeId === 9) {
+         showKey();
+        showTextNode(nextTextNodeId);
+     } else if (nextTextNodeId === 12 && zeppelin === ''){
+         showZeppelin();
+         showTextNode(nextTextNodeId);
+     } else if (nextTextNodeId === 15 && stairwayHeaven === ''){
+         showStairwayHeaven();
+         showTextNode(nextTextNodeId);
+     } else if (nextTextNodeId === 17) {
+         showSongInput();
+     }
+     else {
+        showTextNode(nextTextNodeId);
+        
+    
+    }
+}
+            
+    
 
-const textNodes = [
+let textNodes = [];
+ updateTextNodes();
+function updateTextNodes(){ 
+    textNodes =  [
     {
         id: 1,
         text: 'Anyways... Once upon a time there was a plumber from italy named ' + userName +'.',
+        key: '',
         choices: [
             {
                 text: 'Continue',
@@ -100,6 +157,7 @@ const textNodes = [
     {
         id: 2, 
         text: userName + ' wasn’t like any other plumber. He had an ever recurring feud with a turtle named... BOWSER!',
+        key: '',
         choices: [
             {
                 text: 'Continue',
@@ -111,6 +169,7 @@ const textNodes = [
     {
         id: 3,
         text: 'This time BOWSER had taken it way too far. He had hit ' + userName + ' where he knew it would hurt him...',
+        key: '',
         choices: [
             {
                 text: 'Continue',
@@ -121,6 +180,7 @@ const textNodes = [
     {
         id: 4,
         text: 'Bowser had kidnapped his ever loving wife... PEACH.',
+        key: '',
         choices: [
             {
                 text: 'OH NO!',
@@ -131,6 +191,7 @@ const textNodes = [
     {
         id: 5,
         text: 'Can ' + userName + ' defeat BOWSER and save his dear wife, Peach?',
+        key: '',
         choices: [
             {
             text: "Begin " + userName +"'s adventure!",
@@ -141,6 +202,7 @@ const textNodes = [
     {
         id: 6,
         text: 'You find yourself in a castle with two doors ahead of you. Which door do you choose, door one or two?',
+        key: '',
         choices: [
             {
                 text: 'Door One.',
@@ -148,13 +210,13 @@ const textNodes = [
             },
             {
                 text: 'Door Two.',
-                requiredState: (currentState) => currentState.key,
                 nextText: 11
             }
         ]
     }, {
         id: 7,
         text: 'You entered door One. Here you find three more doors, which one do you enter?',
+        key: '',
         choices: [
             {
                 text: 'Door to the left',
@@ -179,6 +241,7 @@ const textNodes = [
     }, {
         id: 8,
         text: 'You entered the door to the left. This room is empty. Do you want to go back?',
+        key: '',
         choices: [
             {
                 text: 'Go back to previous room.',
@@ -188,6 +251,7 @@ const textNodes = [
     }, {
         id: 9,
         text: 'You entered the door in the middle. You found a key! Do you want to go back?',
+        key: 1,
         choices: [
             {
                 text: 'Go back to previous room.',
@@ -197,6 +261,7 @@ const textNodes = [
     }, {
         id: 10,
         text: 'You entered the door to the right. This room is empty. Do you want to go back?',
+        key: '',
         choices: [
             {
                 text: 'Go back to previous room.',
@@ -206,6 +271,7 @@ const textNodes = [
     }, {
         id: 11,
         text: 'You succesfully used to key to get in! You find two doors once again',
+        key: 1,
         choices: [
             {
                 text: "Go to Bowsers' door(!!!).",
@@ -239,7 +305,7 @@ const textNodes = [
         ]
     }, {
         id: 13,
-        text: 'You entered the blue door. Wow you found a picture! It’s now in your inventory',
+        text: 'You entered the blue door. Nothing special in here...',
         choices: [
             {
                 text: 'Go back to previous room',
@@ -248,7 +314,7 @@ const textNodes = [
         ]
     }, {
         id: 14,
-        text: 'You entered the green door. Wow you found a picture! It’s now in your inventory',
+        text: 'You entered the green door. Wow you found... absolutely nothing.',
         choices: [
             {
                 text: 'Go back to previous room',
@@ -258,6 +324,7 @@ const textNodes = [
     }, {
         id: 15,
         text: 'You entered the red door. Wow you found a picture! It’s now in your inventory',
+        stairwayHeaven: 1,
         choices: [
             {
                 text: 'Go back to previous room',
@@ -267,10 +334,16 @@ const textNodes = [
     }, {
         id: 16,
         text: 'Mohahaha! You finally found me. Behind this door i got your precious Peach. I will only let you thru if you guess my favorite song!',
+        inputYe: 1,
         choices: [
+
             {
                 text: 'Enter favorite song',
                 nextText: 17
+            },
+            {
+                text: 'Go back to previous room',
+                nextText: 11
             }
         ]
     }, {
@@ -279,9 +352,10 @@ const textNodes = [
         choices: [
             {
                 text: 'Start over',
-                id: -1,
+                nextText: -1,
             }
         ]
     }
 
 ]
+}

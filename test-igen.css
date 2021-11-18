@@ -155,6 +155,7 @@ label {
 
 
 .inventory-container {
+    width: 10rem;
     background-color: beige;
     color: #e62820;
     font-size: 1.5rem;
@@ -163,15 +164,18 @@ label {
     padding: 2rem;
     bottom: calc(100vh - var());
     right: 0;
+    
 
 }
 
 .inventory-container > img {
-    height: 4rem;
+    width: 5rem;
+    padding-bottom: 1rem;
 }
 
-#key {display: none;}
-
+#key {display: none;} 
+#zeppelin {display: none;}
+#stairwayHeaven {display: none;}
 /* Animations */
 
 
