@@ -28,7 +28,7 @@ let userName = '';
 let key = '';
 let zeppelin = '';
 let stairwayHeaven = '';
-let inputYe = '';
+let check = '';
 
 
 function addEventListeners() {
@@ -36,7 +36,7 @@ function addEventListeners() {
     startButton.onclick = startGame;
     input.addEventListener('input', saveName);
     inputButton.onclick = startRealGame;
-    console.log(textNodes[15].id);
+    
     
 }
 
@@ -65,7 +65,7 @@ function showTextNode(textNodeIndex) {
     textElement.innerText = textNode.text;
 
     while (choiceButtons.firstChild) {
-        choiceButtons.removeChild(choiceButtons.firstChild); //Tar bort det översta barnet till choiceButtons (alla, då en tas bort, blir en ny firstCHild)
+        choiceButtons.removeChild(choiceButtons.firstChild); //Removes the buttons
     }
 
     textNode.choices.forEach(choice => {    //Loopar igenom alla våra choices i objektet, och om det KAN visas upp. Ibland visas bara choices upp om ett state är true.
@@ -73,14 +73,10 @@ function showTextNode(textNodeIndex) {
         const button = document.createElement('button');
         button.innerText = choice.text;
         button.classList.add('button-choice');
-        button.addEventListener('click', () => selectChoice(choice)); //Gör knappen klickbar. 
-        choiceButtons.appendChild(button);  //Lägger till knappen som ett barn till choiceButtons
+        button.addEventListener('click', () => selectChoice(choice)); //Makes the button clickable and displays the choice as text in the button. 
+        choiceButtons.appendChild(button);  //Adds the button as a child of my button container.
         }
     })
-
-
-    // const findScene = scenes.find(function currentText(currentScene) {return scenes.id === textNodeIndex;});
-
 }
 
 function showChoice(choice) { 
@@ -88,42 +84,67 @@ function showChoice(choice) {
 
 }
 
-function showKey() {
+function showKey() {                // A key is added into the inventory.
     keyItem.style.display ='unset';
     key = 1;
 }
 
-function showZeppelin() {
+function showZeppelin() {           // A zeppelin is added into the inventory
     zeppelinItem.style.display ='unset';
     zeppelin = 1;
 }
 
-function showStairwayHeaven() {
+function showStairwayHeaven() {     // A picture of a stairway (in heaven lol) is added to the inventory
     stairwayHeavenItem.style.display ='unset';
     stairwayHeaven = 1;
 }
 
+function showSongContainer() {
+    songContainer.style.display = 'unset';
+    const songInput = document.getElementById('songInput');
+    const songButton = document.getElementById('songButton');
 
-function selectChoice(choice) {
-    const nextTextNodeId = choice.nextText;
+    songButton.addEventListener('click', (e) => {
+        e.preventDefault();
+        let value = songInput.value;
+       
+        check = ("stairway to heaven" || "stairway to heaven") === value;
+    });
+} 
+
+
+
+function selectChoice(choice) { // Goes to the next textNode. Used if and if else to decide certain states. Example, add a key to user inventory when he/she enters a room.
+    const nextTextNodeId = choice.nextText; 
     
-     if (nextTextNodeId === 11 && key === '') {
+     if (nextTextNodeId === 11 && key === '') { // Or that user only can enter a room if they have a key.
         textElement.innerText = 'You need a key to enter door two!';
      } else if (nextTextNodeId === 11 && key === 1){
         showTextNode(nextTextNodeId);
      } else if (nextTextNodeId === 9) {
          showKey();
         showTextNode(nextTextNodeId);
-     } else if (nextTextNodeId === 12 && zeppelin === ''){
+     } else if (nextTextNodeId === 12 && zeppelin === ''){ // Adds a zeppelin to users inventory, (as a clue)
          showZeppelin();
          showTextNode(nextTextNodeId);
-     } else if (nextTextNodeId === 15 && stairwayHeaven === ''){
+     } else if (nextTextNodeId === 15 && stairwayHeaven === ''){ // Adds a picture of a stairway to users inventory, (as a clue)
          showStairwayHeaven();
          showTextNode(nextTextNodeId);
      } 
-        else if (nextTextNodeId <= 0) {
+        else if (nextTextNodeId <= 0) { // Restarts game when a specifi button in the end is pressed.
          location.reload();
          return false;
+     } else if (textNodes[15].id === 16 && nextTextNodeId === 16)  {
+        showSongContainer();
+        if(check) {
+            showTextNode(17);
+            console.log('sant i senare skede');
+        }
+        if (!check) {
+            textElement.innerText = 'That’s superwrong! Maybe if you would use that small brain of yours you’d figure it out!';
+            showTextNode(11);
+            console.log('falskt i senare skede');
+        }
      }
      else {
         showTextNode(nextTextNodeId);
