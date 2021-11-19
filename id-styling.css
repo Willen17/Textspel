@@ -16,11 +16,6 @@
     padding: 1rem;
 }
 
-#songContainer {
-    display: none;
-    bottom: 18rem; 
-    margin-top: 1rem;
-}
 
 #myText {
     background-color: #ffd333a2;
@@ -42,26 +37,6 @@
     cursor: pointer;
 }
 
-#songInput {
-    background-color: #ffd333a2;
-    border-radius: 0.5rem;
-    border: 1px solid #55141a;
-    height: 2rem;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    font-size: 1rem;
-    padding: .5rem;
-}
-
-#songButton {
-    background-color: #ffd233;
-    border-radius: 0.5rem;
-    border: 1px solid #55141a;
-    height: 2rem;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    font-size: 1rem;
-    cursor: pointer;
-}
-
 #key {display: none;} 
-#zeppelin {display: none;}
-#stairwayHeaven {display: none;}
+#mushroom {display: none;}
+#milk {display: none;}

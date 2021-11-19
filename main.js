@@ -13,31 +13,22 @@ const input = document.getElementById('myText');
 
 const inventory = document.getElementById('inventory');
 const keyItem = document.getElementById('key');
-const zeppelinItem = document.getElementById('zeppelin');
-const stairwayHeavenItem = document.getElementById('stairwayHeaven');
-
-const currentLocation = document.getElementById('location');
-
-const songContainer= document.getElementById('songContainer');
-
-
+const milkItem = document.getElementById('milk');
+const mushroomItem = document.getElementById('mushroom');
 
 
 //State
 let userName = '';
 let key = '';
-let zeppelin = '';
-let stairwayHeaven = '';
-let check = '';
+let milk = '';
+let mushroom = '';
 
 
 function addEventListeners() {
     const startButton = document.getElementById('startButton');
     startButton.onclick = startGame;
     input.addEventListener('input', saveName);
-    inputButton.onclick = startRealGame;
-    
-    
+    inputButton.onclick = startRealGame;    
 }
 
 
@@ -84,37 +75,26 @@ function showChoice(choice) {
 
 }
 
-function showKey() {                // A key is added into the inventory.
+function showKey() {                // A key is added to the inventory.
     keyItem.style.display ='unset';
     key = 1;
 }
 
-function showZeppelin() {           // A zeppelin is added into the inventory
-    zeppelinItem.style.display ='unset';
-    zeppelin = 1;
+function showMilk() {           // A glass of milk is added to the inventory
+    milkItem.style.display ='unset';
+    milk = 1;
 }
 
-function showStairwayHeaven() {     // A picture of a stairway (in heaven lol) is added to the inventory
-    stairwayHeavenItem.style.display ='unset';
-    stairwayHeaven = 1;
+function showMushroom() {     // A mushroom is added to the inventory
+    mushroomItem.style.display ='unset';
+    mushroom = 1;
 }
 
-function showSongContainer() {
-    songContainer.style.display = 'unset';
-    const songInput = document.getElementById('songInput');
-    const songButton = document.getElementById('songButton');
-
-    songButton.addEventListener('click', (e) => {
-        e.preventDefault();
-        let value = songInput.value;
-       
-       check = [ "stairway to heaven", "Stairway to heaven" ].includes(value);
-
-        // check = ("stairway to heaven"===value || "Stairway to heaven"===value);
-    });
-} 
-
-
+function hideAllItems() {
+    mushroomItem.style.display = 'none';
+    milkItem.style.display = 'none';
+    keyItem.style.display = 'none';
+}
 
 function selectChoice(choice) { // Goes to the next textNode. Used if and if else to decide certain states. Example, add a key to user inventory when he/she enters a room.
     const nextTextNodeId = choice.nextText; 
@@ -126,28 +106,26 @@ function selectChoice(choice) { // Goes to the next textNode. Used if and if els
      } else if (nextTextNodeId === 9) {
          showKey();
         showTextNode(nextTextNodeId);
-     } else if (nextTextNodeId === 12 && zeppelin === ''){ // Adds a zeppelin to users inventory, (as a clue)
-         showZeppelin();
+     } else if (nextTextNodeId === 12 && mushroom === ''){ // Adds a glass of milk to users inventory.
+         showMushroom();
          showTextNode(nextTextNodeId);
-     } else if (nextTextNodeId === 15 && stairwayHeaven === ''){ // Adds a picture of a stairway to users inventory, (as a clue)
-         showStairwayHeaven();
+     } else if (nextTextNodeId === 15 && milk === ''){ // Adds a mushroom to users inventory.
+         showMilk();
          showTextNode(nextTextNodeId);
      } 
-        else if (nextTextNodeId <= 0) { // Restarts game when a specifi button in the end is pressed.
+        else if (nextTextNodeId <= 0) { // Restarts game when a specific button in the end is pressed.
          location.reload();
          return false;
-     } else if (textNodes[15].id === 16 && nextTextNodeId === 16)  {
-        showSongContainer();
-        if(check) {
-            showTextNode(17);
-            console.log('sant i senare skede');
-        }
-        if (!check) {
-            textElement.innerText = 'That’s superwrong! Maybe if you would use that small brain of yours you’d figure it out!';
-            showTextNode(11);
-            console.log('falskt i senare skede');
-        }
+     } else if (nextTextNodeId === 17 && milk === '' && mushroom === '')  {
+        textElement.innerText = 'You need to give me a glass of milk and mushroom to go thru!'
      }
+     else if (nextTextNodeId === 17 && mushroom === 1 && milk === 1) {
+         hideAllItems();
+        showTextNode(nextTextNodeId);
+
+     }
+
+     
      else {
         showTextNode(nextTextNodeId);
         
@@ -302,7 +280,7 @@ function updateTextNodes(){
         ]
     }, {
         id: 12,
-        text: 'Surprise! You found three more doors! Does it feel like it’s getting repetetive? Ok. I’m sorry. I added a clue to your inventory',
+        text: 'Surprise! You found three more doors! Does it feel like it’s getting repetetive? Ok. I’m sorry. Here you have a mushroom',
         choices: [
             {
                 text: "Go to the blue door",
@@ -341,8 +319,7 @@ function updateTextNodes(){
         ]
     }, {
         id: 15,
-        text: 'You entered the red door. Wow you found a picture! It’s now in your inventory',
-        stairwayHeaven: 1,
+        text: 'You entered the red door. Wow you found a glass of milk! It’s now in your inventory',
         choices: [
             {
                 text: 'Go back.',
@@ -351,12 +328,11 @@ function updateTextNodes(){
         ]
     }, {
         id: 16,
-        text: 'Mohahaha! You finally found me. Behind this door i got your precious Peach. I will only let you thru if you guess my favorite song!',
-        input: 1,
+        text: 'Mohahaha! You finally found me. Behind this door I got your precious Peach. I will only let you thru if you give me a mushroom and a glass of milk!',
         choices: [
 
             {
-                text: 'Enter favorite song',
+                text: 'Save peach',
                 nextText: 17
             },
             {
@@ -366,7 +342,7 @@ function updateTextNodes(){
         ]
     }, {
         id: 17,
-        text: 'Peach: Wow you saved me etc etc.',
+        text: 'Peach: Wow you saved me! Thank you so much' + userName,
         choices: [
             {
                 text: 'Start over',
