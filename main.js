@@ -108,7 +108,9 @@ function showSongContainer() {
         e.preventDefault();
         let value = songInput.value;
        
-        check = ("stairway to heaven" || "stairway to heaven") === value;
+       check = [ "stairway to heaven", "Stairway to heaven" ].includes(value);
+
+        // check = ("stairway to heaven"===value || "Stairway to heaven"===value);
     });
 } 
 

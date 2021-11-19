@@ -1,35 +1,4 @@
-/* Reusable CSS */
-* {box-sizing: border-box;} 
-
-:root {--header-height: 6rem;}
-
-.flex {display: flex;}
-.flex-block {display: inline-block;}
-.flex-column {flex-direction: column;}
-
-.justify-center {justify-content: center;}
-.justify-between {justify-content: space-between;}
-.text-center {text-align: center;}
-
-
-.align-center {align-items: center;}
-
-.absolute {position: absolute;}
-.relative {position: relative;}
-
-.m-right {margin-right: 1rem;}
-
-.square {
-    width: 20rem;
-    height: 10rem;
-    background-color: #55141a;
-    border-radius: 1rem;
-    cursor: pointer;
-}
-
-.square:hover { background-color: #702028;}
-
-/* Fonts */
+/* Fonts  */
 
 @font-face {
     font-family: SuperMario256;
@@ -41,15 +10,13 @@
     src: url(./assets/fonts/Hey\ Comic.ttf);
 }
 
-
-
 .blue {color: #019edb;}
 .yellow {color: #ffd233;}
 .red {color: #e62820;}
 .green {color: #46ad37;}
 
-/* Element specific classes */
 
+/* Element specific classes */
 
 body {margin: 0;}
 
@@ -72,92 +39,20 @@ main {
     width: 100vw;
 }
 
-.start-text { 
-    animation: colorLoop 5s ease-in-out infinite;
-    font-family: SuperMario256; 
-    font-size: 2rem;
-    letter-spacing: 0.4rem;
-    color: white;
-}
-
-
-.text-square {
-    background-color: beige;
-    color: #e62820;
-    width: 60rem;
-    border-radius: 1rem;
-    padding: 2rem;
-    font-size: 1.5rem;
-    font-family: HeyComic;
-    text-align: center;
-    box-shadow: 0 0 0.5rem 0.15rem #00000079;
-}
-
-#storyBox {display: none; margin: 0 0 4rem;}
-#inputBox {display: none;}
-#choicesBox {display: none;}
-#inventory {display: none;}
-#location {
-    display: none;
-    top: calc(2rem + var(--header-height));
-    left: 3rem;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    font-size: 1.5rem;
-    background-color: #55141a;
-    color: #ffd233;
-    border-radius: 1rem;
-    padding: 1rem;
-}
-#songContainer {
-    display: none;
-    bottom: 18rem; 
-    margin-top: 1rem;
-}
-
 label {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: 1.2rem;
     color: #55141a;
 }
 
-#myText {
-    background-color: #ffd333a2;
-    border-radius: 0.5rem;
-    border: 1px solid #55141a;
-    height: 2rem;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    font-size: 1rem;
-    padding: .5rem;
-}
+/* Styling classes */
 
-#myButton {
-    background-color: #ffd233;
-    border-radius: 0.5rem;
-    border: 1px solid #55141a;
-    height: 2rem;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    font-size: 1rem;
-    cursor: pointer;
-}
-
-#songInput {
-    background-color: #ffd333a2;
-    border-radius: 0.5rem;
-    border: 1px solid #55141a;
-    height: 2rem;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    font-size: 1rem;
-    padding: .5rem;
-}
-
-#songButton {
-    background-color: #ffd233;
-    border-radius: 0.5rem;
-    border: 1px solid #55141a;
-    height: 2rem;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    font-size: 1rem;
-    cursor: pointer;
+.start-text { 
+    animation: colorLoop 5s ease-in-out infinite;
+    font-family: SuperMario256; 
+    font-size: 2rem;
+    letter-spacing: 0.4rem;
+    color: white;
 }
 
 .button-choice {
@@ -176,7 +71,6 @@ label {
 .button-choice:hover {
     border: 1px solid #55141a;
 }
-
 
 .inventory-container {
     width: 10rem;
@@ -197,11 +91,7 @@ label {
     padding-bottom: 1rem;
 }
 
-#key {display: none;} 
-#zeppelin {display: none;}
-#stairwayHeaven {display: none;}
 /* Animations */
-
 
 @keyframes colorLoop {
     0% {

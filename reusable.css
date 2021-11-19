@@ -1,0 +1,42 @@
+/* Reusable CSS */
+* {box-sizing: border-box;} 
+
+:root {--header-height: 6rem;}
+
+.flex {display: flex;}
+.flex-block {display: inline-block;}
+.flex-column {flex-direction: column;}
+
+.justify-center {justify-content: center;}
+.justify-between {justify-content: space-between;}
+.text-center {text-align: center;}
+
+
+.align-center {align-items: center;}
+
+.absolute {position: absolute;}
+.relative {position: relative;}
+
+.m-right {margin-right: 1rem;}
+
+.square {
+    width: 20rem;
+    height: 10rem;
+    background-color: #55141a;
+    border-radius: 1rem;
+    cursor: pointer;
+}
+
+.square:hover { background-color: #702028;}
+
+.text-square {
+    background-color: beige;
+    color: #e62820;
+    width: 60rem;
+    border-radius: 1rem;
+    padding: 2rem;
+    font-size: 1.5rem;
+    font-family: HeyComic;
+    text-align: center;
+    box-shadow: 0 0 0.5rem 0.15rem #00000079;
+}
