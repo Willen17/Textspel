@@ -280,7 +280,7 @@ function updateTextNodes(){
         ]
     }, {
         id: 12,
-        text: 'Surprise! You found three more doors! Does it feel like it’s getting repetetive? Ok. I’m sorry. Here you have a mushroom',
+        text: 'Surprise! You found three more doors! Does it feel like it’s getting repetitive? Ok. I’m sorry. Here you have a mushroom',
         choices: [
             {
                 text: "Go to the blue door",
@@ -319,7 +319,7 @@ function updateTextNodes(){
         ]
     }, {
         id: 15,
-        text: 'You entered the red door. Wow you found a glass of milk! It’s now in your inventory',
+        text: 'You entered the red door. Wow you found a glass of milk! It’s now in your inventory. Be careful not to spill anything!',
         choices: [
             {
                 text: 'Go back.',
@@ -342,7 +342,7 @@ function updateTextNodes(){
         ]
     }, {
         id: 17,
-        text: 'Peach: Wow you saved me! Thank you so much' + userName,
+        text: 'Peach: Wow you saved me! Thank you so much ' + userName,
         choices: [
             {
                 text: 'Start over',
